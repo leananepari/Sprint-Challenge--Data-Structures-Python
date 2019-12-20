@@ -23,6 +23,8 @@ for name2 in names_2:
   if bst.contains(str(name2)):
     duplicates.append(name2)
 
+    
+
 # runtime O(n^2)
 # duplicates = []
 # for name_1 in names_1:
