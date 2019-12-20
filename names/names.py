@@ -13,14 +13,12 @@ f.close()
 
 # optimized O(log n)
 bst = BinarySearchTree(names_1[0])
-for name in range(1, len(names_1)):
-  bst.insert(names_1[name])
-# print(bst.contains('Ronnie Barrera'))
-print(bst.contains('Hallie Vazquez'))
+for name in names_1[1:]:
+  bst.insert(name)
 
 duplicates = []
 for name2 in names_2:
-  if bst.contains(str(name2)):
+  if bst.contains(name2):
     duplicates.append(name2)
 
     
@@ -41,3 +39,5 @@ print (f"runtime: {end_time - start_time} seconds")
 # Python has built-in tools that allow for a very efficient approach to this problem
 # What's the best time you can accomplish with no restrictions on techniques or data
 # structures?
+
+print('Jovanny Baxter' > 'Jean Velazquez')

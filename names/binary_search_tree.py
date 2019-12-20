@@ -44,28 +44,15 @@ class BinarySearchTree:
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-
-      def helper(node, target):
-        if node.value == target:
-          return True
-        else:
-          if target >= node.value:
-            if node.right == None:
-              return False
-            else:
-              helper(node.right, target)
-          elif target <= node.value:
-            if node.left == None:
-              return False
-            else:
-              helper(node.left, target)
-      
-      if target == self.value:
+      if self.value == target:
         return True
-      elif target >= self.value:
-        return helper(self.right, target)
-      elif target <= self.value:
-        return helper(self.left, target)
+     
+      if target >= self.value and self.right is not None:
+        return self.right.contains(target)
+      elif target <= self.value and self.left is not None:
+        return self.left.contains(target)
+      else:
+        return False
 
     # Return the maximum value found in the tree
     def get_max(self):
@@ -169,7 +156,7 @@ class BinarySearchTree:
     
     
 
-bst = BinarySearchTree(1)
+# bst = BinarySearchTree(1)
 # bst.insert(2)
 # bst.insert(3)
 # bst.insert(7)
@@ -194,15 +181,22 @@ bst = BinarySearchTree(1)
 
 # bst.for_each(cb)
 # print(arr)
-bst.insert(8)
-bst.insert(5)
-bst.insert(7)
-bst.insert(6)
-bst.insert(3)
-bst.insert(4)
-bst.insert(2)
+# bst.insert(8)
+# bst.insert(5)
+# bst.insert(7)
+# bst.insert(6)
+# bst.insert(3)
+# bst.insert(4)
+# bst.insert(2)
 # print('HEREEEE', bst.in_order_print(bst.left))
 # bst.in_order_print(bst)
 # bst.dft_print(bst)
 # print(bst.right.left.right.value)
-print(bst.post_order_dft(bst))
+# print(bst.post_order_dft(bst))
+
+bst = BinarySearchTree('Jean Velazquez')
+bst.insert('Alden Cabrera')
+bst.insert('Ronnie Barrera')
+bst.insert('Jovanny Baxter')
+print(bst.contains('Jovanny Baxter'))
+print(bst.right.left.value)
